@@ -1,0 +1,11 @@
+const CONSTANTS = {
+  PERSISTENCE_TYPES: {
+    FILESYSTEM: 1,
+    MEMORY: 2,
+    DATABASE: 3,
+  },
+  DEFAULT_PORT: 8081,
+  DEFAULT_PERSISTENCE: 1,
+};
+
+export default CONSTANTS;
