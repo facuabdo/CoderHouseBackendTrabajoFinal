@@ -1,44 +1,49 @@
-import productoFsDAO from "../../persistance/productoFsDAO";
+import productFsDAO from "../../persistance/productFsDAO.js";
+import { Product } from "../entities/product.js";
 
 export class ProductApi {
   constructor() {
     //En el futuro abstraemos la creación con una factory
     //según el tipo de persistencia
-    this.productoDAO = productoFsDAO;
+    this.productDAO = productFsDAO;
   }
   async getAll() {
     try {
-      await this.productoDAO.obtenerTodos();
+      return await this.productDAO.getAll();
     } catch (error) {
-      console.log(error);
+      throw error;
     }
   }
   async getById(id) {
     try {
-      await this.productoDAO.buscarPorId(id);
+      return await this.productDAO.getById(id);
     } catch (error) {
-      console.log(error);
+      throw error;
     }
   }
-  async crear(producto) {
+  async createOrUpdate(product) {
     try {
-      await this.productoDAO.guardar(producto);
+      let prod = new Product(
+        product.id ?? undefined,
+        product.name,
+        product.description,
+        product.code,
+        product.picture,
+        product.price,
+        product.stock
+      );
+      await this.productDAO.createOrUpdate(prod);
+      return prod;
     } catch (error) {
-      console.log(error);
+      throw error;
     }
   }
-  async modificar(producto) {
+
+  async _delete(id) {
     try {
-      await this.productoDAO.guardar(producto);
+      await this.productDAO._delete(id);
     } catch (error) {
-      console.log(error);
-    }
-  }
-  async eliminar(id) {
-    try {
-      await this.productoDAO.borrar(id);
-    } catch (error) {
-      console.log(error);
+      throw error;
     }
   }
 }

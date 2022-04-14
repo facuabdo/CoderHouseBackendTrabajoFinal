@@ -1,41 +1,41 @@
+import { ProductApi } from "../../model/api/productApi.js";
 export class ProductController {
-  getAll(req, res, next) {
+  constructor() {}
+
+  async getAll(req, res, next) {
     try {
+      const allProducts = await new ProductApi().getAll();
       res.status(200);
-      res.send("Endpoint de obtener todos");
+      res.send(allProducts);
     } catch (error) {
       next(error);
     }
   }
-  getById(req, res, next) {
+  async getById(req, res, next) {
     try {
       const id = req.params.id;
+      const product = await new ProductApi().getById(id);
       res.status(200);
-      res.send("Endpoint de obtener por ID: " + id);
+      res.send(product);
     } catch (error) {
       next(error);
     }
   }
-  createOrUpdate(req, res, next) {
+  async createOrUpdate(req, res, next) {
     try {
-      const product = req.body;
-      let response = "";
-      if (product.id) {
-        response = "Endpoint de actualización del producto " + product.id;
-      } else {
-        response = "Endpoint de creación";
-      }
+      const product = await new ProductApi().createOrUpdate(req.body);
       res.status(200);
-      res.send(response);
+      res.send(product);
     } catch (error) {
       next(error);
     }
   }
-  delete(req, res, next) {
+  async delete(req, res, next) {
     try {
       const id = req.params.id;
-      res.status(200);
-      res.send("Endpoint de eliminación del producto " + id);
+      await new ProductApi()._delete(id);
+      res.status(204);
+      res.send();
     } catch (error) {
       next(error);
     }

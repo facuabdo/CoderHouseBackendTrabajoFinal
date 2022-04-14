@@ -1,8 +1,8 @@
 import { randomUUID } from "crypto";
 
 export class BaseEntity {
-  constructor() {
-    this.id = randomUUID();
+  constructor(id) {
+    this.id = id ? id : randomUUID();
     this.timestamp = Date.now();
   }
 }

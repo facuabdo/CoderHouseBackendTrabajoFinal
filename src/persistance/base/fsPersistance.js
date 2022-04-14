@@ -1,28 +1,27 @@
 import fs from "fs";
-import { __dirname } from "../../utils/utils";
+import { __dirname } from "../../utils/utils.js";
 
 export class FileSystemPersistance {
   constructor(clase) {
-    this.clase = clase.name;
-    this.filePath = __dirname + "/dbfiles/" + this.clase.name + ".json";
+    this.filePath = __dirname + "/dbfiles/" + clase.name + ".json";
   }
 
-  async obtenerTodos() {
+  async getAll() {
     try {
-      const contenido = await fs.promises.readFile(this.filePath, {
+      const entities = await fs.promises.readFile(this.filePath, {
         encoding: "utf-8",
       });
-      return JSON.parse(contenido);
+      return JSON.parse(entities || "[]");
     } catch (error) {
       console.log(error);
       throw error;
     }
   }
 
-  async buscarPorId(id) {
+  async getById(id) {
     try {
-      let arrayEntidades = this.obtenerTodos();
-      return arrayEntidades.find((item) => {
+      let entities = await this.getAll();
+      return entities.find((item) => {
         if (item.id === id) return true;
       });
     } catch (error) {
@@ -31,32 +30,42 @@ export class FileSystemPersistance {
     }
   }
 
-  async guardar(entidad) {
-    let entidades = await this.obtenerTodos();
+  async createOrUpdate(entidad) {
+    let entities = await this.getAll();
     try {
-      entidades.push(entidad);
-      await fs.promises.writeFile(this.filePath, JSON.stringify(entidades));
-      return await this.obtenerTodos();
-    } catch (error) {
-      console.log(error);
-      throw error;
-    }
-  }
-
-  async borrar(id) {
-    try {
-      let entidades = await this.obtenerTodos();
-      entidades.filter((item) => {
-        return item.id !== id;
+      let existing = entities.find((item) => {
+        return item.id === entidad.id;
       });
-      await fs.promises.writeFile(this.filePath, JSON.stringify(entidades));
+
+      if (existing) {
+        entities = entities.filter((item) => {
+          return item.id !== entidad.id;
+        });
+      }
+      entities.push(entidad);
+      await fs.promises.writeFile(this.filePath, JSON.stringify(entities));
+      return await this.getAll();
     } catch (error) {
       console.log(error);
       throw error;
     }
   }
 
-  async borrar() {
+  async _delete(id) {
+    try {
+      let entities = await this.getAll();
+      let filtered =
+        entities.filter((item) => {
+          return item.id !== id;
+        }) || [];
+      await fs.promises.writeFile(this.filePath, JSON.stringify(filtered));
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
+  }
+
+  async deleteAll() {
     try {
       await fs.promises.unlink(this.filePath);
     } catch (error) {
