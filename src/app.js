@@ -1,4 +1,5 @@
 import express from "express";
+import { env } from "process";
 import CONSTANTS from "./config/constants.js";
 import { default as productRouter } from "./routes/productRoutes.js";
 
@@ -13,6 +14,15 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/api/products", productRouter);
 
-const server = app.listen(PORT, () => {
+app.use((err, req, res, next) => {
+  if (err) {
+    res.status(500);
+    res.send(env.production ? null : err.stack);
+  }
+
+  next();
+});
+
+app.listen(PORT, () => {
   console.log("Server running in port " + PORT);
 });
