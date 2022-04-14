@@ -1,0 +1,437 @@
+{
+	"info": {
+		"_postman_id": "967a2144-0d0d-4951-a10e-8746c50058c1",
+		"name": "Coderhouse Backend NodeJS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Get All Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/products/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"products",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All Products",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/api/products/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"products",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "904"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"388-9OqQEkZDCV9oZzZEQpezrZMdfMs\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 14 Apr 2022 06:34:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"891802cb-cf0c-4a29-8ca5-ffd3a3f95080\",\n        \"timestamp\": 1649917309335,\n        \"name\": \"Hidrolavadora\",\n        \"description\": \"Modelo hogareño. Con manguera para canilla común\",\n        \"code\": \"HDLV54\",\n        \"picture\": \"www.google.com.ar\",\n        \"price\": 1200,\n        \"stock\": 10\n    },\n    {\n        \"id\": \"2e024920-ba7a-4e2b-a6bc-886376b3227e\",\n        \"timestamp\": 1649917667187,\n        \"name\": \"Jarron Floral\",\n        \"description\": \"Siglo XV Dinastía Ming\",\n        \"code\": \"SXVDM\",\n        \"picture\": \"www.google.com.ar\",\n        \"price\": 12000000,\n        \"stock\": 10\n    },\n    {\n        \"id\": \"4efa3046-f2cb-4e93-af1e-d99cd2bb4bb6\",\n        \"timestamp\": 1649917710731,\n        \"name\": \"Jarron Floral 2\",\n        \"description\": \"Siglo XV Dinastía Ming 123\",\n        \"code\": \"SXVDM555\",\n        \"picture\": \"www.google.com.ar/jarron-ming\",\n        \"price\": 12005000,\n        \"stock\": 10\n    },\n    {\n        \"id\": \"c3bbe5af-d3ca-42a1-9563-aec29bafbef1\",\n        \"timestamp\": 1649917887228,\n        \"name\": \"Mesa con mantel de hule\",\n        \"description\": \"La que compró mamá hace mucho\",\n        \"code\": \"MM1991\",\n        \"picture\": \"www.google.com.ar/mesa-mama\",\n        \"price\": 18000,\n        \"stock\": 12\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get Product By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/products/6056d0a2-d1a6-4d16-9471-ec9fa981071d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"products",
+								"6056d0a2-d1a6-4d16-9471-ec9fa981071d"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Product By ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/api/products/6056d0a2-d1a6-4d16-9471-ec9fa981071d",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"products",
+										"6056d0a2-d1a6-4d16-9471-ec9fa981071d"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "231"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"e7-lo3uhogsKPNXAoXwRHwUG4vekz8\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 14 Apr 2022 06:10:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"6056d0a2-d1a6-4d16-9471-ec9fa981071d\",\n    \"timestamp\": 1649916355094,\n    \"name\": \"Hidrolavadora\",\n    \"description\": \"Modelo hogareño. Con manguera para canilla común\",\n    \"code\": \"HDLV54\",\n    \"picture\": \"www.google.com.ar\",\n    \"price\": 1200,\n    \"stock\": 10\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n     \"name\": \"Hidrolavadora\",\n    \"description\": \"Modelo hogareño. Con manguera para canilla común\",\n    \"code\": \"HDLV54\",\n    \"picture\": \"www.google.com.ar\",\n    \"price\": 1200,\n    \"stock\": 10\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Product",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n     \"name\": \"Hidrolavadora\",\n    \"description\": \"Modelo hogareño. Con manguera para canilla común\",\n    \"code\": \"HDLV54\",\n    \"picture\": \"www.google.com.ar\",\n    \"price\": 1200,\n    \"stock\": 10\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/products",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"products"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "231"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"e7-lo3uhogsKPNXAoXwRHwUG4vekz8\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 14 Apr 2022 06:05:55 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"6056d0a2-d1a6-4d16-9471-ec9fa981071d\",\n    \"timestamp\": 1649916355094,\n    \"name\": \"Hidrolavadora\",\n    \"description\": \"Modelo hogareño. Con manguera para canilla común\",\n    \"code\": \"HDLV54\",\n    \"picture\": \"www.google.com.ar\",\n    \"price\": 1200,\n    \"stock\": 10\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"6056d0a2-d1a6-4d16-9471-ec9fa981071d\",\n    \"timestamp\": 1649916355094,\n    \"name\": \"Hidrolavadora\",\n    \"description\": \"Modelo hogareño. Con manguera para canilla común\",\n    \"code\": \"HDLV54\",\n    \"picture\": \"www.google.com.ar\",\n    \"price\": 1200,\n    \"stock\": 10\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Product",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"c3bbe5af-d3ca-42a1-9563-aec29bafbef1\",\n    \"name\": \"Mesa con mantel de hule\",\n    \"description\": \"La que compró mamá hace mucho\",\n    \"code\": \"MM1991\",\n    \"picture\": \"www.google.com.ar/mesa-mama\",\n    \"price\": 18000,\n    \"stock\": 12\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/products",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"products"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "233"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"e9-cJ5vmvY9EX9kpBJEzslAZzzh2NM\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 14 Apr 2022 06:31:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"c3bbe5af-d3ca-42a1-9563-aec29bafbef1\",\n    \"timestamp\": 1649917887228,\n    \"name\": \"Mesa con mantel de hule\",\n    \"description\": \"La que compró mamá hace mucho\",\n    \"code\": \"MM1991\",\n    \"picture\": \"www.google.com.ar/mesa-mama\",\n    \"price\": 18000,\n    \"stock\": 12\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/products/6056d0a2-d1a6-4d16-9471-ec9fa981071d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"products",
+								"6056d0a2-d1a6-4d16-9471-ec9fa981071d"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Product",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/products/d18d9e38-261d-444c-b77f-d3d6eba2b6c1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"products",
+										"d18d9e38-261d-444c-b77f-d3d6eba2b6c1"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 14 Apr 2022 06:22:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		}
+	]
+}

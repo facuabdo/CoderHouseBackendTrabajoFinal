@@ -23,8 +23,8 @@ export class ProductApi {
   }
   async createOrUpdate(product) {
     try {
-      let prod = new Product(
-        product.id ?? undefined,
+      const prod = new Product(
+        product.id,
         product.name,
         product.description,
         product.code,
